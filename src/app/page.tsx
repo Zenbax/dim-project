@@ -1,9 +1,11 @@
 'use client';
-import { useRef, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function Home() {
     const audioRef = useRef<HTMLAudioElement | null>(null);
+    const [playAnimation, setPlayAnimation] = useState(false);
+    const opacity = 0;
 
     const playSound = (sound: string) => {
         if (audioRef.current) {
@@ -23,6 +25,21 @@ export default function Home() {
         }
     };
 
+    const handleMouseEnter = () => {
+        if (!playAnimation) {
+            setPlayAnimation(true);
+            playSound("laughter.mp3");
+        }
+    };
+
+    useEffect(() => {
+        if (playAnimation) {
+            const animationDuration = 3000; // Duration of the GIF in milliseconds
+            const timer = setTimeout(() => setPlayAnimation(false), animationDuration);
+            return () => clearTimeout(timer);
+        }
+    }, [playAnimation]);
+
     useEffect(() => {
         const handleWindowBlur = () => stopSound();
         window.addEventListener("blur", handleWindowBlur);
@@ -32,59 +49,82 @@ export default function Home() {
     return (
         <div className="relative w-screen h-screen">
             <Image
-                src="/images/ThemeParkPixel.png"
+                src="/images/theme-park-pixel.png"
                 alt="Theme Park Pixel"
-                layout="fill"
+                fill
                 className="object-cover image-rendering-pixelated"
                 quality={100}
+            />
+            <Image
+                src="/images/babuska-park.svg"
+                alt="Babuska Park"
+                className="absolute top-10 left-10 object-cover image-rendering-pixelated"
+                quality={100}
+                width={400}
+                height={200}
             />
             {/* Trampoline Park Div */}
             <div
                 onMouseEnter={() => playSound("spring.mp3")}
                 onMouseLeave={stopSound}
                 className="
-                absolute top-[420px] left-[800px] w-[250px] h-[100px] bg-red-500 opacity-50
+                absolute top-[420px] left-[800px] w-[250px] h-[100px] bg-red-500
                 transform -translate-x-1/2 -translate-y-1/2"
+                style={{ opacity }}
             />
             {/* Water World Div */}
             <div
                 onMouseEnter={() => playSound("splash.mp3")}
                 onMouseLeave={stopSound}
                 className="
-                absolute top-[300px] left-[1080px] w-[410px] h-[130px] bg-blue-500 opacity-50
+                absolute top-[300px] left-[1080px] w-[410px] h-[130px] bg-blue-500
                 transform -translate-x-1/2 -translate-y-1/2"
+                style={{ opacity }}
             />
             {/* Buffet House Div */}
             <div
                 onMouseEnter={() => playSound("eating.mp3")}
                 onMouseLeave={stopSound}
                 className="
-                absolute top-[440px] left-[1120px] w-[250px] h-[100px] bg-green-500 opacity-50
+                absolute top-[440px] left-[1120px] w-[250px] h-[100px] bg-green-500
                 transform -translate-x-1/2 -translate-y-1/2"
+                style={{ opacity }}
             />
             {/* Skull Ride Div */}
             <div
-                onMouseEnter={() => playSound("laughter.mp3")}
-                onMouseLeave={stopSound}
+                onMouseEnter={handleMouseEnter}
                 className="
-                absolute top-[260px] left-[700px] w-[170px] h-[140px] bg-orange-500 opacity-50
-                transform -translate-x-1/2 -translate-y-1/2"
-            />
+                    absolute top-[260px] left-[700px] w-[170px] h-[140px]
+                    transform -translate-x-1/2 -translate-y-1/2"
+            >
+                {playAnimation && (
+                    <Image
+                        src="/images/smoke.gif"
+                        alt="smoke"
+                        width={31 * 3} // Set the width
+                        height={43 * 3} // Set the height
+                        quality={100}
+                        className="absolute -top-[27px] -left-[27px] z-10"
+                    />
+                )}
+            </div>
             {/* Ice Cream Div */}
             <div
                 onMouseEnter={() => playSound("lick.mp3")}
                 onMouseLeave={stopSound}
                 className="
-                absolute top-[430px] left-[530px] w-[120px] h-[90px] bg-pink-500 opacity-50
+                absolute top-[430px] left-[530px] w-[120px] h-[90px] bg-pink-500
                 transform -translate-x-1/2 -translate-y-1/2"
+                style={{ opacity }}
             />
             {/* Welcome Ticket Div */}
             <div
                 onMouseEnter={() => playSound("welcome.mp3")}
                 onMouseLeave={stopSound}
                 className="
-                absolute top-[540px] left-[1050px] w-[210px] h-[100px] bg-yellow-500 opacity-50
+                absolute top-[540px] left-[1050px] w-[210px] h-[100px] bg-yellow-500
                 transform -translate-x-1/2 -translate-y-1/2"
+                style={{ opacity }}
             />
         </div>
     );
