@@ -56,170 +56,257 @@ export default function Home() {
     }, []);
 
     return (
-        <div className="relative w-screen h-screen">
+        <div
+            className="relative w-full"
+            style={{
+                paddingTop: "56.25%", // Aspect ratio (e.g., 16:9 or adjust to match your image)
+            }}
+        >
+            {/* Background Image */}
             <Image
                 src="/images/theme-park-pixel.png"
                 alt="Theme Park Pixel"
                 fill
-                className="object-cover image-rendering-pixelated"
+                className="absolute top-0 left-0 w-full h-full object-cover image-rendering-pixelated"
                 quality={100}
             />
-            <div className="absolute top-135 left-335 transform -translate-x-1/2 -translate-y-1/2">
+
+            {/* Jumping Gif 1 */}
+            <div
+                className="absolute"
+                style={{
+                    top: "40%", // Position relative to the height of the container
+                    left: "50.5%", // Position relative to the width of the container
+                    width: "3%", // Width relative to the container
+                    height: "5%", // Height relative to the container
+                }}
+            >
                 <Image
                     src="/images/JumpingGifRepeat.gif"
                     alt="Jumping Gif"
-                    width={50}
-                    height={50}
                     className="animate-bounce"
                     quality={100}
                     style={{
-                        animationDuration: "1.5s", // Bounce duration
-                        animationDelay: "0.25s",  // Start at the bottom
-                        imageRendering: "pixelated", // Ensures sharp pixel art rendering
+                        animationDuration: "1.5s",
+                        animationDelay: "0.25s",
+                        imageRendering: "pixelated",
                     }}
-
+                    fill
                 />
-
             </div>
 
-            <div className="absolute top-140 left-280 transform -translate-x-1/2 -translate-y-1/2">
+            {/* Jumping Gif 2 */}
+            <div
+                className="absolute"
+                style={{
+                    top: "41%",
+                    left: "42.5%",
+                    width: "3%",
+                    height: "5%",
+                }}
+            >
                 <Image
                     src="/images/JumpingGifRepeat.gif"
                     alt="Jumping Gif"
-                    width={50}
-                    height={50}
                     className="animate-bounce"
                     quality={100}
                     style={{
-                        animationDuration: "1.5s", // Bounce duration
-                        animationDelay: "0.25s",  // Start at the bottom
+                        animationDuration: "1.5s",
+                        animationDelay: "0.25s",
+                        imageRendering: "pixelated",
                     }}
+                    fill
                 />
-
             </div>
 
-            <div className="absolute top-210 left-195 transform -translate-x-1/2 -translate-y-1/2">
+            {/* Ferris Wheel */}
+            <div
+                className="absolute"
+                style={{
+                    top: "56%",
+                    left: "27%",
+                    width: "8%",
+                    height: "12%",
+                }}
+            >
                 <Image
                     src="/images/FerrisWheel.gif"
-                    alt="Jumping Gif"
-                    width={200}
-                    height={200}
+                    alt="Ferris Wheel"
+                    className="image-rendering-pixelated"
                     quality={100}
                     style={{
-                        imageRendering: "pixelated", // Ensures sharp pixel art rendering
+                        imageRendering: "pixelated",
                     }}
+                    fill
                 />
             </div>
 
-            <Image
-                src="/images/babuska-park.svg"
-                alt="Babuska Park"
-                className="absolute top-10 left-10 object-cover image-rendering-pixelated"
-                quality={100}
-                width={400}
-                height={200}
-            />
-            <h1
-                className="absolute top-24 left-10 object-cover text-black text-[30px] image-rendering-pixelated"
-            >A park for all sizes!</h1>
-            {/* Buy Tickets Button */}
-            <button
-                className="absolute top-10 right-10 px-6 py-3 bg-yellow-500 text-black font-bold rounded hover:bg-yellow-400"
-                onClick={() => alert("Redirecting to ticket purchase...")}
-            >
-                Buy Tickets
-            </button>
-            {/* Trampoline Park Div */}
+            {/* Babuska Park Logo */}
             <div
+                className="absolute"
+                style={{
+                    top: "5%",
+                    left: "5%",
+                    width: "20%",
+                    height: "10%",
+                }}
+            >
+                <Image
+                    src="/images/babuska-park.svg"
+                    alt="Babuska Park"
+                    className="image-rendering-pixelated"
+                    quality={100}
+                    fill
+                />
+                
+            </div>
+
+            {/* Trampoline Park */}
+            <div
+                className="absolute bg-red-500"
+                style={{
+                    top: "37%",
+                    left: "41%",
+                    width: "15%",
+                    height: "18%",
+                    opacity,
+                }}
                 onMouseEnter={() => playSound("spring.mp3")}
                 onMouseLeave={stopSound}
-                className="
-                absolute top-[420px] left-[800px] w-[250px] h-[100px] bg-red-500
-                transform -translate-x-1/2 -translate-y-1/2"
-                style={{ opacity }}
             />
-            {/* Water World Div */}
+
+            {/* Water World */}
             <div
+                className="absolute bg-blue-500"
+                style={{
+                    top: "20%",
+                    left: "55%",
+                    width: "22%",
+                    height: "20%",
+                    opacity,
+                }}
                 onMouseEnter={() => playSound("splash.mp3")}
                 onMouseLeave={stopSound}
-                className="
-                absolute top-[300px] left-[1080px] w-[410px] h-[130px] bg-blue-500
-                transform -translate-x-1/2 -translate-y-1/2"
-                style={{ opacity }}
             />
-            {/* Buffet House Div */}
+
+            {/* Buffet House */}
             <div
+                className="absolute bg-green-500"
+                style={{
+                    top: "40%",
+                    left: "60%",
+                    width: "15%",
+                    height: "10%",
+                    opacity,
+                }}
                 onMouseEnter={() => playSound("eating.mp3")}
                 onMouseLeave={stopSound}
-                className="
-                absolute top-[440px] left-[1120px] w-[250px] h-[100px] bg-green-500
-                transform -translate-x-1/2 -translate-y-1/2"
-                style={{ opacity }}
             />
-            {/* Skull Ride Div */}
+
+            {/* Skull Ride */}
             <div
+                className="absolute"
+                style={{
+                    top: "20%",
+                    left: "36%",
+                    width: "11%",
+                    height: "15%",
+                }}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={stopSound}
-                className="
-                    absolute top-[260px] left-[700px] w-[170px] h-[140px]
-                    transform -translate-x-1/2 -translate-y-1/2"
             >
                 {playAnimation && (
+                <div
+                    className="absolute"
+                    style={{
+                        top: "-11%", // Adjust the position relative to the parent container
+                        left: "-22%", // Adjust the position relative to the parent container
+                        width: "75%", // Width relative to the parent container
+                        height: "75%", // Height relative to the parent container
+                    }}
+                >
                     <Image
                         src="/images/smoke.gif"
                         alt="smoke"
-                        width={31 * 3} // Set the width
-                        height={43 * 3} // Set the height
+                        className="absolute"
                         quality={100}
-                        className="absolute -top-[27px] -left-[27px] z-10  image-rendering-pixelated"
+                        fill // Ensures the image fills the parent div and scales proportionally
+                        style={{
+                            objectFit: "contain", // Ensures the aspect ratio is maintained
+                        }}
                     />
-                )}
+                </div>
+            )}
             </div>
-            {/* Ice Cream Div */}
+
+            {/* Ice Cream */}
             <div
+                className="absolute bg-pink-500"
+                style={{
+                    top: "40%",
+                    left: "27%",
+                    width: "8%",
+                    height: "10%",
+                    opacity,
+                }}
                 onMouseEnter={() => playSound("lick.mp3")}
                 onMouseLeave={stopSound}
-                className="
-                absolute top-[430px] left-[530px] w-[120px] h-[90px] bg-pink-500
-                transform -translate-x-1/2 -translate-y-1/2"
-                style={{ opacity }}
             />
-            {/* Welcome Ticket Div */}
+
+            {/* Welcome Ticket */}
             <div
+                className="absolute bg-yellow-500"
+                style={{
+                    top: "50%",
+                    left: "57%",
+                    width: "10%",
+                    height: "10%",
+                    opacity,
+                }}
                 onMouseEnter={() => playSound("welcome.mp3")}
                 onMouseLeave={stopSound}
-                className="
-                absolute top-[540px] left-[1050px] w-[210px] h-[100px] bg-yellow-500
-                transform -translate-x-1/2 -translate-y-1/2"
-                style={{ opacity }}
             />
-            {/* Round Ride Element */}
+
+            {/* Round Ride */}
             <div
-                className="
-        absolute top-[700px] left-[800px] w-[170px] h-[170px] bg-transparent rounded-full
-        transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
+                className="absolute bg-transparent rounded-full flex items-center justify-center"
+                style={{
+                    top: "68%",
+                    left: "42%",
+                    width: "10%",
+                    height: "10%",
+                }}
             >
                 <Image
                     src="/images/ride.gif"
                     alt="Round Ride"
-                    width={170}
-                    height={170}
-                    className="rounded-full  image-rendering-pixelated"
+                    className="rounded-full image-rendering-pixelated"
                     quality={100}
+                    fill
                 />
             </div>
-            {/* Welcome Video Element */}
-            <video
-                className={`absolute bottom-5 left-5 w-[300px] ${isExpanded ? "h-[414px]" : "h-[120px]"
-                    } rounded-[20px] shadow-lg transition-all duration-300`}
-                controls
-                autoPlay
-                onEnded={handleVideoEnd}
-                onClick={toggleVideoSize}
+
+            {/* Welcome Video */}
+            <div
+                className="absolute"
+                style={{
+                    bottom: "0%",
+                    left: "5%",
+                    width: "10%",
+                    height: isExpanded ? "30%" : "10%",
+                }}
             >
-                <source src="/videos/welcome.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
+                <video
+                    className="rounded-[20px] shadow-lg transition-all duration-300"
+                    controls
+                    autoPlay
+                    onEnded={handleVideoEnd}
+                    onClick={toggleVideoSize}
+                >
+                    <source src="/videos/welcome.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </div>
     );
 }
