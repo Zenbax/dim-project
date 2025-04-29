@@ -290,7 +290,7 @@ export default function Home() {
             <div
                 className="absolute"
                 style={{
-                    bottom: "0%",
+                    bottom: "5%",
                     left: "5%",
                     width: "10%",
                     height: isExpanded ? "30%" : "10%",
