@@ -143,7 +143,7 @@ export default function Home() {
 
             {/* Babuska Park Logo */}
             <div
-                className="absolute"
+                className="absolute flex-row flex"
                 style={{
                     top: "5%",
                     left: "5%",
@@ -158,7 +158,7 @@ export default function Home() {
                     quality={100}
                     fill
                 />
-                
+            <p className="text-[20px]">Welcome To</p>
             </div>
 
             {/* Trampoline Park */}
@@ -290,8 +290,8 @@ export default function Home() {
             <div
                 className="absolute"
                 style={{
-                    bottom: "5%",
-                    left: "5%",
+                    bottom: "0",
+                    left: "3%",
                     width: "10%",
                     height: isExpanded ? "30%" : "10%",
                 }}
