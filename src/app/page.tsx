@@ -220,27 +220,27 @@ export default function Home() {
                 onMouseLeave={stopSound}
             >
                 {playAnimation && (
-                <div
-                    className="absolute"
-                    style={{
-                        top: "-11%", // Adjust the position relative to the parent container
-                        left: "-22%", // Adjust the position relative to the parent container
-                        width: "75%", // Width relative to the parent container
-                        height: "75%", // Height relative to the parent container
-                    }}
-                >
-                    <Image
-                        src="/images/smoke.gif"
-                        alt="smoke"
+                    <div
                         className="absolute"
-                        quality={100}
-                        fill // Ensures the image fills the parent div and scales proportionally
                         style={{
-                            objectFit: "contain", // Ensures the aspect ratio is maintained
+                            top: "-11%", // Adjust the position relative to the parent container
+                            left: "-22%", // Adjust the position relative to the parent container
+                            width: "75%", // Width relative to the parent container
+                            height: "75%", // Height relative to the parent container
                         }}
-                    />
-                </div>
-            )}
+                    >
+                        <Image
+                            src="/images/smoke.gif"
+                            alt="smoke"
+                            className="absolute"
+                            quality={100}
+                            fill // Ensures the image fills the parent div and scales proportionally
+                            style={{
+                                objectFit: "contain", // Ensures the aspect ratio is maintained
+                            }}
+                        />
+                    </div>
+                )}
             </div>
 
             {/* Ice Cream */}
@@ -291,17 +291,17 @@ export default function Home() {
             </div>
 
             {/* Welcome Video */}
-                <video
-                    className={`absolute bottom-[4%] left-[4%] w-[15%] ${
-                        isExpanded ? "h-[40%]" : "h-[10%]"
-                    } rounded-[20px] shadow-lg transition-all duration-300`}
-                    controls
-                    onEnded={handleVideoEnd}
-                    onClick={toggleVideoSize}
-                >
-                    <source src="/videos/welcome.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
+            <video
+                className={`absolute bottom-[4%] left-[4%] w-[15%] ${
+                    isExpanded ? "h-[40%]" : "h-[10%]"
+                } rounded-[20px] shadow-lg transition-all duration-300`}
+                controls
+                onEnded={handleVideoEnd}
+                onClick={toggleVideoSize}
+            >
+                <source src="/videos/welcome.mp4" type="video/mp4"/>
+                Your browser does not support the video tag.
+            </video>
         </div>
     );
 }
