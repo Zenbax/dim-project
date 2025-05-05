@@ -287,26 +287,17 @@ export default function Home() {
             </div>
 
             {/* Welcome Video */}
-            <div
-                className="absolute"
-                style={{
-                    bottom: "0",
-                    left: "3%",
-                    width: "10%",
-                    height: isExpanded ? "30%" : "10%",
-                }}
-            >
                 <video
-                    className="rounded-[20px] shadow-lg transition-all duration-300"
+                    className={`absolute bottom-[4%] left-[4%] w-[15%] ${
+                        isExpanded ? "h-[40%]" : "h-[10%]"
+                    } rounded-[20px] shadow-lg transition-all duration-300`}
                     controls
-                    autoPlay
                     onEnded={handleVideoEnd}
                     onClick={toggleVideoSize}
                 >
                     <source src="/videos/welcome.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
-            </div>
         </div>
     );
 }
