@@ -147,18 +147,22 @@ export default function Home() {
                 style={{
                     top: "5%",
                     left: "5%",
-                    width: "20%",
-                    height: "10%",
+                    width: "10%",
+                    height: "20%",
                 }}
             >
                 <Image
-                    src="/images/babuska-park.svg"
+                    src="/images/BabuskaParkLogoPng.png"
                     alt="Babuska Park"
                     className="image-rendering-pixelated"
+                    style={{
+                        top: "25%",
+                        left: "-17%",
+                    }}
                     quality={100}
                     fill
                 />
-            <p className="text-[20px]">Welcome To</p>
+                <p className="text-[20px] font-serif text-black">Welcome To</p>
             </div>
 
             {/* Trampoline Park */}
